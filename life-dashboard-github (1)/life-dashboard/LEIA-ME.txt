@@ -1,0 +1,33 @@
+LIFE DASHBOARD - pacote de hospedagem (HTTPS, gratuito)
+
+O que é: o app completo, pronto para publicar. Seus dados ficam só no seu aparelho. Não existe servidor, conta nem senha neste pacote.
+
+PASSO 1 - Publicar (escolha UMA hospedagem)
+ A) GitHub Pages: crie um repositório público, envie TODOS os arquivos desta pasta (inclusive .nojekyll e a pasta icons),
+    abra Settings > Pages > Deploy from a branch > main > / (root). Endereço: https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/
+ B) Cloudflare Pages ou Netlify: crie um projeto novo e arraste esta pasta. O endereço termina em .pages.dev ou .netlify.app.
+ Abra o endereço no Chrome do celular. Ele precisa começar com https://
+
+PASSO 2 - Registrar o app no Microsoft Entra (https://entra.microsoft.com)
+ Identidade > Aplicativos > Registros de aplicativo > Novo registro
+  - Nome: Life Dashboard
+  - Tipos de conta: contas em qualquer diretório organizacional (multilocatário)
+  - Em Autenticação, adicione a plataforma "Aplicativo de página única (SPA)" e cole o URI de redirecionamento
+    EXATAMENTE como aparece em Configurações do app (com barra no final, maiúsculas iguais). Nunca use a plataforma "Web".
+  - Em Permissões de API > Microsoft Graph > Permissões delegadas: User.Read, EduRoster.ReadBasic, EduAssignments.ReadBasic
+ Copie o "ID do aplicativo (cliente)".
+
+PASSO 3 - Colar o ID
+ Cole o ID em Configurações do app (ou no cartão da Escola). Para ficar sempre preenchido, edite config.js e publique de novo.
+
+PASSO 4 - Autorização da escola
+ EduRoster.ReadBasic e EduAssignments.ReadBasic exigem consentimento de administrador. No cartão da Escola, toque em
+ "Preciso da autorização da escola" e envie a mensagem pronta ao responsável pelo Microsoft 365 da escola.
+
+PASSO 5 - Conectar e instalar no Android
+ Toque em "Conectar Microsoft Teams", entre com a conta da escola e aceite. Depois, no Chrome: menu (3 pontos) > Instalar app.
+
+Observações
+ - Contas pessoais (Outlook.com, Hotmail) não têm turmas do Teams for Education e não funcionam aqui.
+ - A sessão do Microsoft dura cerca de 24 horas; depois o app pede para reconectar (normalmente um toque).
+ - Se mudar o endereço do site, cadastre o novo URI de redirecionamento no Entra.
